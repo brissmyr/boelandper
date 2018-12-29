@@ -9,15 +9,17 @@ gem 'coffee-rails'     # Use CoffeeScript for .coffee assets and views
 gem 'devise'
 gem 'jbuilder'         # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jquery-rails'     # Use jquery as the JavaScript library
+gem 'jwt'
 gem 'puma'             # Use Puma as the app server
 gem 'rails'            # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'sass-rails'       # Use SCSS for stylesheets
+gem 'simple_command'
 gem 'slim-rails'
 gem 'turbolinks'       # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'uglifier'         # Use Uglifier as compressor for JavaScript assets
 
-gem 'castle-middleware', git: 'https://github.com/castle/castle-ruby-middleware.git', tag: 'upgrades'
+gem 'castle-middleware', path: '../castle-ruby-middleware'
 
 group :development, :test do
   gem 'byebug', platform: :mri  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
