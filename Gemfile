@@ -21,6 +21,7 @@ gem 'castle-middleware', git: 'https://github.com/castle/castle-ruby-middleware.
 
 group :development, :test do
   gem 'byebug', platform: :mri  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'dotenv-rails'
 end
 
 group :development do

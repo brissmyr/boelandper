@@ -1,0 +1,37 @@
+---
+identify:
+  id: id
+user_traits:
+  registered_at: created_at
+  email: email
+  name: name
+events:
+  $login.failed:
+    status: '200'
+    method: POST
+    path: "/users/sign_in"
+    properties:
+      email: user.email
+  $login.succeeded:
+    authenticate: true
+    status: '302'
+    method: POST
+    path: "/users/sign_in"
+    user_traits_from_params:
+      email: user.email
+  $logout.succeeded:
+    status: '302'
+    method: DELETE
+    path: "/users/sign_out"
+  $password_reset.requested:
+    status: !ruby/regexp /.*/
+    method: POST
+    path: "/users/password"
+    user_traits_from_params:
+      email: user.email
+  $password_reset.succeeded:
+    status: '302'
+    method: PUT
+    path: "/users/password"
+    user_traits_from_params:
+      email: user.email

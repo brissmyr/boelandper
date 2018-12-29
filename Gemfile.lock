@@ -78,6 +78,10 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     erubi (1.8.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
@@ -226,6 +230,7 @@ DEPENDENCIES
   castle-middleware!
   coffee-rails
   devise
+  dotenv-rails
   jbuilder
   jquery-rails
   listen
