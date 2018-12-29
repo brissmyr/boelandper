@@ -7,7 +7,6 @@ user_traits:
 events:
   $login.failed:
     - status: '401'
-      authenticate: true
       method: POST
       path: "/api/login"
     - status: '200'
@@ -23,10 +22,16 @@ events:
       deny:
         url: http://localhost.charlesproxy.com:3000/login?failed_error=1
     - status: '200'
+      authenticate: true
       method: POST
       path: "/api/login"
       user_traits_from_params:
         email: user.email
+      deny:
+        body: '{ "message": "authentication failed"}'
+        status: 401
+        headers:
+          'Content-Type': 'application/json'
   $logout.succeeded:
     status: '302'
     method: DELETE

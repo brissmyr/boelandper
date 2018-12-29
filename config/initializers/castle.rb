@@ -8,7 +8,7 @@ Castle::Middleware.configure do |config|
   config.logger = Rails.logger
 
   config.services.provide_user = lambda do |request, secure|
-    if (user = request.env['warden']&.user) # for logged users
+    if (user = (request.env['api_user'] || request.env['warden']&.user)) # for logged users
       user
     elsif (user_id = request.session.fetch('warden.user.user.key', []).dig(0, 0)) # when logging out
       User.find_by(id: user_id) if secure

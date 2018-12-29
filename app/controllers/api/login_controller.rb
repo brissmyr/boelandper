@@ -6,7 +6,8 @@ class Api::LoginController < ActionController::Base
   def create
     command = AuthenticateUser.call(params[:email], params[:password])
     if command.success?
-      render json: { auth_token: command.result }
+      request.env['api_user'] = command.result[:user]
+      render json: { auth_token: command.result[:jwt] }
     else
       render json: { error: command.errors }, status: :unauthorized
     end

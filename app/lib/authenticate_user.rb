@@ -9,7 +9,11 @@ class AuthenticateUser
   end
 
   def call
-    JsonWebToken.encode(user_id: user.id) if user
+    user.yield_self do |u|
+      if user
+        { user: u, jwt: JsonWebToken.encode(user_id: u.id) }
+      end
+    end
   end
 
   private
