@@ -7,22 +7,28 @@ user_traits:
   name: name
 events:
   $login.failed:
-    status: '200'
+    status: '401'
     method: POST
-    path: "/users/sign_in"
-    properties:
-      email: user.email
+    path: "/login"
   $login.succeeded:
     authenticate: true
     status: '302'
     method: POST
-    path: "/users/sign_in"
+    path: "/login"
     user_traits_from_params:
       email: user.email
   $logout.succeeded:
     status: '302'
     method: DELETE
-    path: "/users/sign_out"
+    path: "/logout"
+  $profile_update.succeeded:
+    status: '302'
+    method: POST
+    path: "/"
+  $profile_update.failed:
+    status: '200'
+    method: POST
+    path: "/"
   $password_reset.requested:
     status: !ruby/regexp /.*/
     method: POST
