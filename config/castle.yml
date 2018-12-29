@@ -6,16 +6,25 @@ user_traits:
   email: email
 events:
   $login.failed:
-    status: '200'
-    method: POST
-    path: "/login"
+    - status: '401'
+      authenticate: true
+      method: POST
+      path: "/api/login"
+    - status: '200'
+      method: POST
+      path: "/login"
   $login.succeeded:
-    # authenticate: true
-    status: '302'
-    method: POST
-    path: "/login"
-    user_traits_from_params:
-      email: user.email
+    - status: '302'
+      authenticate: true
+      method: POST
+      path: "/login"
+      user_traits_from_params:
+        email: user.email
+    - status: '200'
+      method: POST
+      path: "/api/login"
+      user_traits_from_params:
+        email: user.email
   $logout.succeeded:
     status: '302'
     method: DELETE
