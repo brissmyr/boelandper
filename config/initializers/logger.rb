@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ActionDispatch::DebugExceptions
   alias_method :old_log_error, :log_error
   def log_error(env, wrapper)
