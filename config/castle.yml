@@ -20,12 +20,13 @@ events:
       path: "/login"
       user_traits_from_params:
         email: user.email
+      deny:
+        url: http://localhost.charlesproxy.com:3000/login?failed_error=1
     - status: '200'
       method: POST
       path: "/api/login"
       user_traits_from_params:
         email: user.email
-    deny_url: http://localhost.charlesproxy.com:3000/login?failed_error=1
   $logout.succeeded:
     status: '302'
     method: DELETE
