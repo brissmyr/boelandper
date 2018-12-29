@@ -4,10 +4,9 @@ identify:
 user_traits:
   registered_at: created_at
   email: email
-  name: name
 events:
   $login.failed:
-    status: '401'
+    status: '200'
     method: POST
     path: "/login"
   $login.succeeded:
