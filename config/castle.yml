@@ -10,7 +10,7 @@ events:
     method: POST
     path: "/login"
   $login.succeeded:
-    authenticate: true
+    # authenticate: true
     status: '302'
     method: POST
     path: "/login"
@@ -21,8 +21,9 @@ events:
     method: DELETE
     path: "/logout"
   $profile_update.succeeded:
+    authenticate: true
     status: '302'
-    method: POST
+    method: PUT
     path: "/"
   $profile_update.failed:
     status: '200'
