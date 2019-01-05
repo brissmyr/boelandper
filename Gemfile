@@ -43,8 +43,8 @@ end
 
 # always use: "bundle install --without production" command to install gems during development
 group :production do
-  gem 'pg'
   gem 'thin'
+  gem 'sqlite3'                 # Use sqlite3 as the database for Active Record
 end
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
