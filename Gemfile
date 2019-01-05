@@ -21,18 +21,19 @@ gem 'uglifier'         # Use Uglifier as compressor for JavaScript assets
 
 #gem 'castle-middleware', path: '../castle-ruby-middleware'
 gem 'castle-middleware', git: 'https://github.com/wallin/castle-ruby-middleware.git', branch: 'upgrades'
-gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'dotenv-rails'
 end
+
+gem 'sqlite3'
 
 group :development do
   gem 'listen'
   gem 'pry-byebug'
   gem 'spring'                  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring-watcher-listen'
-  gem 'sqlite3'                 # Use sqlite3 as the database for Active Record
   gem 'web-console'             # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'capistrano', require: false
   gem 'capistrano-bundler', require: false
@@ -45,7 +46,7 @@ end
 # always use: "bundle install --without production" command to install gems during development
 group :production do
   gem 'thin'
-  gem 'sqlite3'                 # Use sqlite3 as the database for Active Record
+  gem 'dotenv'
 end
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
