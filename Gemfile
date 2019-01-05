@@ -19,7 +19,8 @@ gem 'turbolinks'       # Turbolinks makes navigating your web application faster
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'uglifier'         # Use Uglifier as compressor for JavaScript assets
 
-gem 'castle-middleware', path: '../castle-ruby-middleware'
+#gem 'castle-middleware', path: '../castle-ruby-middleware'
+gem 'castle-middleware', git: 'https://github.com/wallin/castle-ruby-middleware.git', branch: 'upgrades'
 
 group :development, :test do
   gem 'byebug', platform: :mri  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -33,6 +34,11 @@ group :development do
   gem 'spring-watcher-listen'
   gem 'sqlite3'                 # Use sqlite3 as the database for Active Record
   gem 'web-console'             # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano3-puma',   require: false
 end
 
 # always use: "bundle install --without production" command to install gems during development
