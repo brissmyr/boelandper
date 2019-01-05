@@ -46,7 +46,7 @@ end
 # always use: "bundle install --without production" command to install gems during development
 group :production do
   gem 'thin'
-  gem 'dotenv'
+  gem 'dotenv-rails'
 end
 
 # See https://github.com/rails/execjs#readme for more supported runtimes

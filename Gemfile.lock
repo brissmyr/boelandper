@@ -264,7 +264,6 @@ DEPENDENCIES
   castle-middleware!
   coffee-rails
   devise
-  dotenv
   dotenv-rails
   jbuilder
   jquery-rails
