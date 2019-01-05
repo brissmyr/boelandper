@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/wallin/castle-ruby-middleware.git
-  revision: 698d69a74d1eb7939f540e7b96adc006b03809ae
+  revision: 3a07cff599e612932ab406d54dce57e255be7056
   branch: upgrades
   specs:
     castle-middleware (1.0.0)
