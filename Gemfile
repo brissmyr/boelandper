@@ -21,10 +21,10 @@ gem 'uglifier'         # Use Uglifier as compressor for JavaScript assets
 
 #gem 'castle-middleware', path: '../castle-ruby-middleware'
 gem 'castle-middleware', git: 'https://github.com/wallin/castle-ruby-middleware.git', branch: 'upgrades'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'dotenv-rails'
 end
 
 group :development do
@@ -39,6 +39,7 @@ group :development do
   gem 'capistrano-rails', require: false
   gem 'capistrano-rbenv', require: false
   gem 'capistrano3-puma',   require: false
+  gem 'capistrano-dotenv-tasks', require: false
 end
 
 # always use: "bundle install --without production" command to install gems during development
