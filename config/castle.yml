@@ -21,6 +21,8 @@ events:
         email: user.email
       deny:
         url: http://localhost.charlesproxy.com:3000/login?failed_error=1
+      challenge:
+        url: https://verify.castlete.st/views/challenge.html
     - status: '200'
       authenticate: true
       method: POST
