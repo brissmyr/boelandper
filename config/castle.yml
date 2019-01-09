@@ -22,7 +22,8 @@ events:
       deny:
         url: https://verify.castlete.st/views/_deny.html
       challenge:
-        url: https://verify.castlete.st/views/_challenge.html
+        #url: https://verify.castlete.st/views/_challenge.html
+        url: '/login'
     - status: '200'
       authenticate: true
       method: POST
