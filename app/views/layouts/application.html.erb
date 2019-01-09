@@ -8,6 +8,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	  <%= csrf_meta_tags %>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.13/featherlight.min.js" integrity="sha256-/SEQTcl9tvyYDA8SuhV/PMn92shN3kNn8C9vnbBcE9Y=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.13/featherlight.min.css" integrity="sha256-vEYriSASSzT/+p9GbevPsOCXMX7Wt2tzpUetOcN0/jQ=" crossorigin="anonymous" />
   </head>
 
   <body>
@@ -37,5 +41,30 @@
 
       <%= yield %>
 	  </div>
+    <script type="text/javascript">
+      // Castle challenge popup snippet
+      var api = 'https://verify.castlete.st'
+      var verificationToken = $('meta[name=castle_verification_token]').attr('content');
+      var redirectData = $('meta[name=castle_session_data]').attr('content');
+
+      if(verificationToken) {
+        var popup = $.featherlight(
+          {iframe: api + '/views/_challenge.html', iframeWidth: 800, iframeHeight: 500}
+        );
+
+        (function poll() {
+          var params = { verification_token: verificationToken };
+          $.get(api + '/v0/check', params, function(data) {
+            if (data.confirmed) {
+              popup.close();
+              location.href = "?_crd=" + redirectData;
+            } else {
+              setTimeout(poll, 1000);
+            }
+          });
+        })()
+      }
+
+    </script>
   </body>
 </html>
