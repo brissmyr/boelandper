@@ -20,7 +20,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows doe
 gem 'uglifier'         # Use Uglifier as compressor for JavaScript assets
 
 #gem 'castle-middleware', path: '../castle-ruby-middleware'
-gem 'castle-middleware', git: 'https://github.com/wallin/castle-ruby-middleware.git', branch: 'upgrades'
+# gem 'castle-middleware', git: 'https://github.com/wallin/castle-ruby-middleware.git', branch: 'upgrades'
 
 group :development, :test do
   gem 'byebug', platform: :mri  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
