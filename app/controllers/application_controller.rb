@@ -21,10 +21,8 @@ class ApplicationController < ActionController::Base
 
   before_action do
     flash.alert = 'Invalid Email or password.' if params[:failed_error]
-  end
 
-  after_action do
-    if current_user && !response.headers['X-User-Id']
+    if current_user
       response.headers['X-User-Id'] = current_user.id
     end
   end
