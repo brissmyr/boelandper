@@ -24,6 +24,13 @@ class ApplicationController < ActionController::Base
 
     if current_user
       response.headers['X-User-Id'] = current_user.id
+      response.headers['X-User-Traits'] = JSON.dump({
+        email: current_user.email,
+        created_at: current_user.created_at,
+        updated_at: current_user.updated_at,
+        first_name: current_user.first_name,
+        last_name: current_user.last_name
+      })
     end
   end
 
